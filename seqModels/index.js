@@ -140,4 +140,6 @@ module.exports = {
   Report,
   ReportNotification,
   Contact,
+  Tag,
+  EventTag,
 };
