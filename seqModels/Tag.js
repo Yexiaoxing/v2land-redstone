@@ -6,6 +6,7 @@ const NewsTag = global.sequelize.define('tag', {
   title: {
     type: Sequelize.TEXT,
     allowNull: false,
+    unique: true,
   },
 },
 {

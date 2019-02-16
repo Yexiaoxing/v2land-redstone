@@ -81,4 +81,7 @@ module.exports.routes = {
 
   'GET /search': 'SearchController.keywordSearch',
 
+  'GET /tag': 'TagController.getTagList',
+  'GET /tag/:tagName': 'TagController.findTag',
+
 }

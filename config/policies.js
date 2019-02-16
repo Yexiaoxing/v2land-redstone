@@ -94,4 +94,9 @@ module.exports.policies = {
     'keywordSearch': true,
   },
 
+  TagController: {
+    'findTag': true,
+    'getTagList': true,
+    '*': false
+  }
 };
