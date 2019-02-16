@@ -11,6 +11,8 @@ const Subscription = require('./Subscription');
 const Report = require('./Report');
 const ReportNotification = require('./ReportNotification');
 const Contact = require('./Contact');
+const Tag = require('./Tag');
+const EventTag = require('./EventTag');
 
 Event.hasOne(HeaderImage, {
   as: 'headerImage',
@@ -25,6 +27,11 @@ Event.hasMany(Stack, {
 
 Event.hasMany(News, {
   foreignKey: 'eventId',
+});
+
+Event.belongsToMany(Tag, {
+  foreignKey: 'eventId',
+  through: EventTag,
 });
 
 Event.hasMany(Critique, {
@@ -113,6 +120,11 @@ Report.belongsToMany(Notification, {
 });
 
 Contact.belongsTo(Auth);
+
+Tag.belongsToMany(Event, {
+  foreignKey: 'tagId',
+  through: EventTag,
+});
 
 module.exports = {
   Auth,
