@@ -12,7 +12,11 @@ async function findEvent (eventName, { includes = {}, eventOnly = false, transac
         { name: eventName },
       ],
     },
-    include: eventOnly ? [] : [
+    include: eventOnly ? [{
+      as: 'tags',
+      model: SeqModels.Tag,
+      required: false,
+    }] : [
       {
         model: SeqModels.HeaderImage,
         as: 'headerImage',
@@ -34,6 +38,11 @@ async function findEvent (eventName, { includes = {}, eventOnly = false, transac
           limit: 3,
           required: false,
         },
+      },
+      {
+        as: 'tags',
+        model: SeqModels.Tag,
+        required: false,
       },
     ],
     transaction,

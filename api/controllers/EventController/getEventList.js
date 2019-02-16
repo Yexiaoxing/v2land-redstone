@@ -75,6 +75,11 @@ async function getEventList (req, res) {
           as: 'latestAdmittedNews',
           model: SeqModels.News,
           required: false,
+        },
+        {
+          as: 'tags',
+          model: SeqModels.Tag,
+          required: false,
         }],
         order: [['updatedAt', 'DESC']],
         transaction,
